@@ -15,7 +15,7 @@ namespace JDMallen.Base64Converter
 			InitializeComponent();
 		}
 
-		private void button1_Click(object sender, EventArgs e)
+		private void ConvertButton_Click(object sender, EventArgs e)
 		{
 			var inputText = string.Join(Environment.NewLine, input.Lines);
 
@@ -31,6 +31,16 @@ namespace JDMallen.Base64Converter
 				var result = Convert.ToBase64String(bytes);
 				input.Lines = new[] { result };
 			}
+		}
+
+		private void JsonPrettifyButton_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void XmlPrettifyButton_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
