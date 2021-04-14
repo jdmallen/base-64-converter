@@ -14,5 +14,23 @@ namespace JDMallen.Base64Converter
 		{
 			InitializeComponent();
 		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			var inputText = string.Join(Environment.NewLine, input.Lines);
+
+			try
+			{
+				var bytes = Convert.FromBase64String(inputText);
+				var result = Encoding.UTF8.GetString(bytes);
+				input.Lines = new[] { result };
+			}
+			catch (Exception)
+			{
+				var bytes = Encoding.UTF8.GetBytes(inputText);
+				var result = Convert.ToBase64String(bytes);
+				input.Lines = new[] { result };
+			}
+		}
 	}
 }
