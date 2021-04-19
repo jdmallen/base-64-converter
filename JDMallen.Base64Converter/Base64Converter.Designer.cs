@@ -66,6 +66,7 @@ namespace JDMallen.Base64Converter
 			this.input.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.input.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.input.HideSelection = false;
 			this.input.Location = new System.Drawing.Point(3, 3);
 			this.input.MaxLength = 1073741824;

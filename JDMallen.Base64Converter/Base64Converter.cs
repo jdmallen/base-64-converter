@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace JDMallen.Base64Converter
 {
@@ -15,9 +17,11 @@ namespace JDMallen.Base64Converter
 			InitializeComponent();
 		}
 
+		private string GetInput() => string.Join(Environment.NewLine, input.Lines);
+
 		private void ConvertButton_Click(object sender, EventArgs e)
 		{
-			var inputText = string.Join(Environment.NewLine, input.Lines);
+			var inputText = GetInput();
 
 			try
 			{
@@ -35,12 +39,36 @@ namespace JDMallen.Base64Converter
 
 		private void JsonPrettifyButton_Click(object sender, EventArgs e)
 		{
-
+			try
+			{
+				input.Lines = new[] { ParseAndFormatJson(GetInput()) };
+			}
+			catch
+			{
+				//
+			}
 		}
 
 		private void XmlPrettifyButton_Click(object sender, EventArgs e)
 		{
 
+		}
+
+		private string ParseAndFormatJson(string str)
+		{
+			var result = string.Empty;
+
+			try
+			{
+				var obj = JsonConvert.DeserializeObject(str);
+				result = JsonConvert.SerializeObject(obj, Formatting.Indented);
+			}
+			catch (Exception e)
+			{
+				return result;
+			}
+
+			return result;
 		}
 	}
 }
