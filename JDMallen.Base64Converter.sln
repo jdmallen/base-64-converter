@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JDMallen.Base64Converter", "JDMallen.Base64Converter\JDMallen.Base64Converter.csproj", "{12A2BA87-41BF-4D57-8E88-881E7E0E2576}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JDMallen.Base64Converter", "src\JDMallen.Base64Converter\JDMallen.Base64Converter.csproj", "{12A2BA87-41BF-4D57-8E88-881E7E0E2576}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{69DFAB1B-C2BC-4B48-A189-0BFC4F26B6ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +20,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{12A2BA87-41BF-4D57-8E88-881E7E0E2576} = {69DFAB1B-C2BC-4B48-A189-0BFC4F26B6ED}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DF948C2D-2EA4-4541-B884-6209621F5439}
