@@ -16,6 +16,8 @@ namespace JDMallen.Base64Converter
 			InitializeComponent();
 			_undoStack = new Stack<string>();
 			_redoStack = new Stack<string>();
+			UndoButton.Enabled = false;
+			RedoButton.Enabled = false;
 		}
 
 		private readonly Stack<string> _undoStack;
@@ -26,19 +28,18 @@ namespace JDMallen.Base64Converter
 		private void ConvertButton_Click(object sender, EventArgs e)
 		{
 			string inputText = GetInput();
-			_undoStack.Push(inputText);
 
 			try
 			{
 				byte[] bytes = Convert.FromBase64String(inputText);
 				string result = Encoding.UTF8.GetString(bytes);
-				input.Lines = new[] { result };
+				SetInput(result);
 			}
 			catch (Exception)
 			{
 				byte[] bytes = Encoding.UTF8.GetBytes(inputText);
 				string result = Convert.ToBase64String(bytes);
-				input.Lines = new[] { result };
+				SetInput(result);
 			}
 		}
 
@@ -46,9 +47,8 @@ namespace JDMallen.Base64Converter
 		{
 			try
 			{
-				string inputText = GetInput();
-				_undoStack.Push(inputText);
-				input.Lines = new[] { ParseAndFormatJson(inputText) };
+				string prettyJson = ParseAndFormatJson(GetInput());
+				SetInput(prettyJson);
 			}
 			catch
 			{
@@ -60,9 +60,8 @@ namespace JDMallen.Base64Converter
 		{
 			try
 			{
-				string inputText = GetInput();
-				_undoStack.Push(inputText);
-				input.Lines = new[] { ParseAndFormatXml(inputText) };
+				string prettyXml = ParseAndFormatXml(GetInput());
+				SetInput(prettyXml);
 			}
 			catch
 			{
@@ -142,7 +141,7 @@ namespace JDMallen.Base64Converter
 
 				byte[] bytes = File.ReadAllBytes(filename);
 				string result = Convert.ToBase64String(bytes);
-				input.Lines = new[] { result };
+				SetInput(result);
 			}
 			catch
 			{
@@ -154,16 +153,33 @@ namespace JDMallen.Base64Converter
 		{
 			string inputText = GetInput();
 			_redoStack.Push(inputText);
-
 			input.Lines = new[] { _undoStack.Pop() };
+
+			CheckButtons();
 		}
 
 		private void RedoButton_Click(object sender, EventArgs e)
 		{
+			SetInput(_redoStack.Pop(), false);
+		}
+
+		private void SetInput(string str, bool clearRedo = true)
+		{
 			string inputText = GetInput();
 			_undoStack.Push(inputText);
+			if (clearRedo)
+			{
+				_redoStack.Clear();
+			}
+			input.Lines = new[] { str };
 
-			input.Lines = new[] { _redoStack.Pop() };
+			CheckButtons();
+		}
+
+		private void CheckButtons()
+		{
+			UndoButton.Enabled = _undoStack.Count > 0;
+			RedoButton.Enabled = _redoStack.Count > 0;
 		}
 	}
 }

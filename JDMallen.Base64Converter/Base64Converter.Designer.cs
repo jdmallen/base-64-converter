@@ -34,9 +34,9 @@ namespace JDMallen.Base64Converter
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.JsonPrettifyButton = new System.Windows.Forms.Button();
 			this.XmlPrettifyButton = new System.Windows.Forms.Button();
+			this.UndoButton = new System.Windows.Forms.Button();
 			this.ConvertButton = new System.Windows.Forms.Button();
 			this.ConvertFileButton = new System.Windows.Forms.Button();
-			this.UndoButton = new System.Windows.Forms.Button();
 			this.RedoButton = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
@@ -127,6 +127,17 @@ namespace JDMallen.Base64Converter
 			this.XmlPrettifyButton.UseVisualStyleBackColor = true;
 			this.XmlPrettifyButton.Click += new System.EventHandler(this.XmlPrettifyButton_Click);
 			// 
+			// UndoButton
+			// 
+			this.UndoButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.UndoButton.Location = new System.Drawing.Point(338, 3);
+			this.UndoButton.Name = "UndoButton";
+			this.UndoButton.Size = new System.Drawing.Size(46, 23);
+			this.UndoButton.TabIndex = 6;
+			this.UndoButton.Text = "Undo";
+			this.UndoButton.UseVisualStyleBackColor = true;
+			this.UndoButton.Click += new System.EventHandler(this.UndoButton_Click);
+			// 
 			// ConvertButton
 			// 
 			this.ConvertButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -148,17 +159,6 @@ namespace JDMallen.Base64Converter
 			this.ConvertFileButton.Text = "Convert File...";
 			this.ConvertFileButton.UseVisualStyleBackColor = true;
 			this.ConvertFileButton.Click += new System.EventHandler(this.ConvertFileButton_Click);
-			// 
-			// UndoButton
-			// 
-			this.UndoButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.UndoButton.Location = new System.Drawing.Point(338, 3);
-			this.UndoButton.Name = "UndoButton";
-			this.UndoButton.Size = new System.Drawing.Size(46, 23);
-			this.UndoButton.TabIndex = 6;
-			this.UndoButton.Text = "Undo";
-			this.UndoButton.UseVisualStyleBackColor = true;
-			this.UndoButton.Click += new System.EventHandler(this.UndoButton_Click);
 			// 
 			// RedoButton
 			// 
