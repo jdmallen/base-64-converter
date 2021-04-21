@@ -33,8 +33,11 @@ namespace JDMallen.Base64Converter
 			this.input = new System.Windows.Forms.TextBox();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.JsonPrettifyButton = new System.Windows.Forms.Button();
-			this.ConvertButton = new System.Windows.Forms.Button();
 			this.XmlPrettifyButton = new System.Windows.Forms.Button();
+			this.ConvertButton = new System.Windows.Forms.Button();
+			this.ConvertFileButton = new System.Windows.Forms.Button();
+			this.UndoButton = new System.Windows.Forms.Button();
+			this.RedoButton = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.SuspendLayout();
@@ -81,13 +84,19 @@ namespace JDMallen.Base64Converter
 			this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.tableLayoutPanel2.ColumnCount = 3;
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel2.ColumnCount = 6;
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
 			this.tableLayoutPanel2.Controls.Add(this.JsonPrettifyButton, 0, 0);
-			this.tableLayoutPanel2.Controls.Add(this.ConvertButton, 2, 0);
 			this.tableLayoutPanel2.Controls.Add(this.XmlPrettifyButton, 1, 0);
+			this.tableLayoutPanel2.Controls.Add(this.UndoButton, 2, 0);
+			this.tableLayoutPanel2.Controls.Add(this.ConvertButton, 5, 0);
+			this.tableLayoutPanel2.Controls.Add(this.ConvertFileButton, 4, 0);
+			this.tableLayoutPanel2.Controls.Add(this.RedoButton, 3, 0);
 			this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 396);
 			this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -99,7 +108,7 @@ namespace JDMallen.Base64Converter
 			// JsonPrettifyButton
 			// 
 			this.JsonPrettifyButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.JsonPrettifyButton.Location = new System.Drawing.Point(53, 3);
+			this.JsonPrettifyButton.Location = new System.Drawing.Point(20, 3);
 			this.JsonPrettifyButton.Name = "JsonPrettifyButton";
 			this.JsonPrettifyButton.Size = new System.Drawing.Size(88, 23);
 			this.JsonPrettifyButton.TabIndex = 4;
@@ -107,10 +116,21 @@ namespace JDMallen.Base64Converter
 			this.JsonPrettifyButton.UseVisualStyleBackColor = true;
 			this.JsonPrettifyButton.Click += new System.EventHandler(this.JsonPrettifyButton_Click);
 			// 
+			// XmlPrettifyButton
+			// 
+			this.XmlPrettifyButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.XmlPrettifyButton.Location = new System.Drawing.Point(152, 3);
+			this.XmlPrettifyButton.Name = "XmlPrettifyButton";
+			this.XmlPrettifyButton.Size = new System.Drawing.Size(82, 23);
+			this.XmlPrettifyButton.TabIndex = 3;
+			this.XmlPrettifyButton.Text = "XML Prettify";
+			this.XmlPrettifyButton.UseVisualStyleBackColor = true;
+			this.XmlPrettifyButton.Click += new System.EventHandler(this.XmlPrettifyButton_Click);
+			// 
 			// ConvertButton
 			// 
-			this.ConvertButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.ConvertButton.Location = new System.Drawing.Point(698, 3);
+			this.ConvertButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.ConvertButton.Location = new System.Drawing.Point(673, 3);
 			this.ConvertButton.Name = "ConvertButton";
 			this.ConvertButton.Size = new System.Drawing.Size(75, 23);
 			this.ConvertButton.TabIndex = 2;
@@ -118,16 +138,37 @@ namespace JDMallen.Base64Converter
 			this.ConvertButton.UseVisualStyleBackColor = true;
 			this.ConvertButton.Click += new System.EventHandler(this.ConvertButton_Click);
 			// 
-			// XmlPrettifyButton
+			// ConvertFileButton
 			// 
-			this.XmlPrettifyButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.XmlPrettifyButton.Location = new System.Drawing.Point(250, 3);
-			this.XmlPrettifyButton.Name = "XmlPrettifyButton";
-			this.XmlPrettifyButton.Size = new System.Drawing.Size(82, 23);
-			this.XmlPrettifyButton.TabIndex = 3;
-			this.XmlPrettifyButton.Text = "XML Prettify";
-			this.XmlPrettifyButton.UseVisualStyleBackColor = true;
-			this.XmlPrettifyButton.Click += new System.EventHandler(this.XmlPrettifyButton_Click);
+			this.ConvertFileButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.ConvertFileButton.Location = new System.Drawing.Point(536, 3);
+			this.ConvertFileButton.Name = "ConvertFileButton";
+			this.ConvertFileButton.Size = new System.Drawing.Size(89, 23);
+			this.ConvertFileButton.TabIndex = 5;
+			this.ConvertFileButton.Text = "Convert File...";
+			this.ConvertFileButton.UseVisualStyleBackColor = true;
+			this.ConvertFileButton.Click += new System.EventHandler(this.ConvertFileButton_Click);
+			// 
+			// UndoButton
+			// 
+			this.UndoButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.UndoButton.Location = new System.Drawing.Point(338, 3);
+			this.UndoButton.Name = "UndoButton";
+			this.UndoButton.Size = new System.Drawing.Size(46, 23);
+			this.UndoButton.TabIndex = 6;
+			this.UndoButton.Text = "Undo";
+			this.UndoButton.UseVisualStyleBackColor = true;
+			this.UndoButton.Click += new System.EventHandler(this.UndoButton_Click);
+			// 
+			// RedoButton
+			// 
+			this.RedoButton.Location = new System.Drawing.Point(390, 3);
+			this.RedoButton.Name = "RedoButton";
+			this.RedoButton.Size = new System.Drawing.Size(46, 23);
+			this.RedoButton.TabIndex = 7;
+			this.RedoButton.Text = "Redo";
+			this.RedoButton.UseVisualStyleBackColor = true;
+			this.RedoButton.Click += new System.EventHandler(this.RedoButton_Click);
 			// 
 			// Base64Converter
 			// 
@@ -153,5 +194,8 @@ namespace JDMallen.Base64Converter
 		private System.Windows.Forms.Button ConvertButton;
 		private System.Windows.Forms.Button XmlPrettifyButton;
 		private System.Windows.Forms.Button JsonPrettifyButton;
+		private System.Windows.Forms.Button ConvertFileButton;
+		private System.Windows.Forms.Button UndoButton;
+		private System.Windows.Forms.Button RedoButton;
 	}
 }
